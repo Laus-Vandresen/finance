@@ -1,0 +1,13 @@
+package io.app.finance.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+public class AuthenticationResponseDto {
+
+    private String jwt;
+}
