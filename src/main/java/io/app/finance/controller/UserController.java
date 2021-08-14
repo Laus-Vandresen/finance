@@ -3,15 +3,17 @@ package io.app.finance.controller;
 import io.app.finance.dto.AuthenticationRequestDto;
 import io.app.finance.dto.AuthenticationResponseDto;
 import io.app.finance.dto.UserDto;
+import io.app.finance.entity.UserEntity;
 import io.app.finance.service.UserService;
 import io.app.finance.service.impl.AuthUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -26,8 +28,8 @@ public class UserController {
         return authenticationResponse;
     }
 
-    @PostMapping("/create-user")
-    public void createNewUser(@RequestBody UserDto user) {
-        this.userService.createNewUser(user);
+    @PostMapping
+    public UserEntity createNewUser(@RequestBody UserDto user) {
+        return this.userService.createNewUser(user);
     }
 }

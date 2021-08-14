@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //@ComponentScan("io.app.finance.config")
 //@ComponentScan("io.app.finance.service")
-//@EnableJpaRepositories("io.app.finance.repository")
+@EnableJpaRepositories("io.app.finance.repository")
 //@EntityScan("io.app.finance.entity")
 @SpringBootApplication
 public class FinanceApplication {
