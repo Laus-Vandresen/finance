@@ -36,4 +36,8 @@ public class AccountEntity {
         this.type = accountDto.getType();
         return this;
     }
+
+    public void changeBalance(BigDecimal newBalance) {
+        this.currentBalance = newBalance;
+    }
 }

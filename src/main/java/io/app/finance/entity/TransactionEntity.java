@@ -1,5 +1,6 @@
 package io.app.finance.entity;
 
+import io.app.finance.dto.TransactionDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,15 +19,19 @@ public class TransactionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserEntity userEntity;
-
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
-    private AccountEntity accountEntity;
-
+    private Long userId;
+    private Long accountId;
     private String description;
+    private String transactionType;
     private String category;
     private BigDecimal transactionAmount;
+
+    public TransactionEntity(TransactionDto transactionDto) {
+        this.userId = transactionDto.getUserId();
+        this.accountId = transactionDto.getAccountId();
+        this.description = transactionDto.getDescription();
+        this.transactionType = transactionDto.getTransactionType();
+        this.category = transactionDto.getCategory();
+        this.transactionAmount = transactionDto.getTransactionAmount();
+    }
 }
