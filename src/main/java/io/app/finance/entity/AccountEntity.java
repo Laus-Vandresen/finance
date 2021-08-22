@@ -1,6 +1,7 @@
 package io.app.finance.entity;
 
 import io.app.finance.dto.AccountDto;
+import io.app.finance.enuns.AccountTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,10 +22,14 @@ public class AccountEntity {
 
     private Long userId;
     private String name;
-    private String type;
+
+    @Convert(converter = AccountTypeEnum.Converter.class)
+    private AccountTypeEnum type;
+
     private BigDecimal currentBalance;
 
     public AccountEntity(AccountDto account) {
+        this.id = account.getId();
         this.userId = account.getUserId();
         this.name = account.getName();
         this.type = account.getType();

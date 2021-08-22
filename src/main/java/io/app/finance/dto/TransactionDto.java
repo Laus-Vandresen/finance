@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @Getter
 public class TransactionDto {
 
+    private Long Id;
     private Long userId;
     private Long accountId;
     private String description;

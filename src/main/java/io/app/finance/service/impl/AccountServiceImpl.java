@@ -26,8 +26,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountEntity editAccount(AccountDto accountDto, Long id) throws Exception {
-        AccountEntity accountEntity = accountRepository.findById(id).get();
+    public AccountEntity editAccount(AccountDto accountDto, Long id) throws RuntimeException {
+        AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found"));
         return accountRepository.save(accountEntity.editAccount(accountDto));
     }
 

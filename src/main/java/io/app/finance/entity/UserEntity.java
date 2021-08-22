@@ -24,6 +24,7 @@ public class UserEntity {
     private String lastname;
 
     public UserEntity(UserDto user) {
+        this.id = user.getId();
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.name = user.getName();

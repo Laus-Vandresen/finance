@@ -27,6 +27,7 @@ public class TransactionEntity {
     private BigDecimal transactionAmount;
 
     public TransactionEntity(TransactionDto transactionDto) {
+        this.id = transactionDto.getId();
         this.userId = transactionDto.getUserId();
         this.accountId = transactionDto.getAccountId();
         this.description = transactionDto.getDescription();
