@@ -1,6 +1,9 @@
 package io.app.finance.entity;
 
 import io.app.finance.dto.TransactionDto;
+import io.app.finance.enuns.AccountTypeEnum;
+import io.app.finance.enuns.TransactionCategoryEnum;
+import io.app.finance.enuns.TransactionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +25,13 @@ public class TransactionEntity {
     private Long userId;
     private Long accountId;
     private String description;
-    private String transactionType;
-    private String category;
+
+    @Convert(converter = TransactionTypeEnum.Converter.class)
+    private TransactionTypeEnum transactionType;
+
+    @Convert(converter = TransactionCategoryEnum.Converter.class)
+    private TransactionCategoryEnum category;
+
     private BigDecimal transactionAmount;
 
     public TransactionEntity(TransactionDto transactionDto) {

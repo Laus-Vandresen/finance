@@ -1,5 +1,6 @@
 package io.app.finance.dto;
 
+import io.app.finance.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,13 @@ public class UserDto {
 
     public void changePassword(String password) {
         this.password = password;
+    }
+
+    public UserDto(UserEntity userEntity) {
+        this.id = userEntity.getId();
+        this.email = userEntity.getEmail();
+        this.password = userEntity.getPassword();
+        this.name = userEntity.getName();
+        this.lastname = userEntity.getLastname();
     }
 }

@@ -24,12 +24,11 @@ public class UserController {
 
     @PostMapping("/authenticate")
     public AuthenticationResponseDto createAuthenticationToken(@RequestBody AuthenticationRequestDto authenticatioRequest) throws Exception {
-        AuthenticationResponseDto authenticationResponse = authUserDetailsService.createAuthenticationToken(authenticatioRequest);
-        return authenticationResponse;
+        return authUserDetailsService.createAuthenticationToken(authenticatioRequest);
     }
 
     @PostMapping
-    public UserEntity createNewUser(@RequestBody UserDto user) {
-        return this.userService.createNewUser(user);
+    public UserDto createNewUser(@RequestBody UserDto user) {
+        return new UserDto(this.userService.createNewUser(user));
     }
 }

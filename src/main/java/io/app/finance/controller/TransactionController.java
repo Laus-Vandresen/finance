@@ -1,7 +1,6 @@
 package io.app.finance.controller;
 
 import io.app.finance.dto.TransactionDto;
-import io.app.finance.entity.TransactionEntity;
 import io.app.finance.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +15,8 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-
     @PostMapping
-    public TransactionEntity createNewTransaction(@RequestBody TransactionDto transactionDto) throws Exception {
-        return transactionService.createNewTransaction(transactionDto);
+    public TransactionDto createNewTransaction(@RequestBody TransactionDto transactionDto) throws RuntimeException {
+        return new TransactionDto(transactionService.createNewTransaction(transactionDto));
     }
 }

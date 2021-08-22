@@ -5,5 +5,5 @@ import io.app.finance.entity.TransactionEntity;
 
 public interface TransactionService {
 
-    TransactionEntity createNewTransaction(TransactionDto transactionDto) throws Exception;
+    TransactionEntity createNewTransaction(TransactionDto transactionDto) throws RuntimeException;
 }
